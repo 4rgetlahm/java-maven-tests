@@ -1,4 +1,3 @@
-package test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,7 +38,7 @@ public class OrderTests {
     @ParameterizedTest
     @ValueSource(strings = {"data1.txt", "data2.txt"})
     void orderItems(String fileName) throws IOException, InterruptedException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("src/test/resources/" + fileName));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("src/test/java/resources/" + fileName));
         driver.get("https://demowebshop.tricentis.com/");
         login(driver);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='/digital-downloads']")));
@@ -70,7 +69,6 @@ public class OrderTests {
     void login(WebDriver driver){
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='/login']")));
         driver.findElement(By.xpath("//a[@href='/login']")).click();
-        System.out.println("clicked");
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@class='email']")));
         driver.findElement(By.xpath("//input[@class='email']")).sendKeys("test01039r92@test.com");
         driver.findElement(By.xpath("//input[@class='password']")).sendKeys("test123");
