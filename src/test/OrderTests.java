@@ -59,6 +59,7 @@ public class OrderTests {
         driver.findElement(By.xpath("//input[@name='BillingNewAddress.Address1']")).sendKeys("Test 1");
         driver.findElement(By.xpath("//input[@name='BillingNewAddress.ZipPostalCode']")).sendKeys("94939");
         driver.findElement(By.xpath("//input[@name='BillingNewAddress.PhoneNumber']")).sendKeys("+1295493201");
+        
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@class='button-1 new-address-next-step-button']"))).click();
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@onclick='PaymentMethod.save()']"))).click();
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@onclick='PaymentInfo.save()']"))).click();
